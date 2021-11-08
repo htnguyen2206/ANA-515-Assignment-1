@@ -1,0 +1,27 @@
+---
+title: "ANA 515 Assignment 1"
+author: "Thi Huyen Nguyen"
+date: "10/31/2021"
+output: 
+  html_document:
+  theme: united
+---
+
+We have data about 100,798 individuals killed by guns. Only 15,687 are older than 65. The distribution of the remainder is shown below:
+
+# Gun deaths by age
+
+```{r youth-dist, echo = FALSE}
+youth %>% 
+ggplot(aes(age)) + 
+geom_freqpoly(binwidth = 1) 
+```
+
+# Gun deaths by race
+
+```{r race-dist, echo = FALSE}
+youth %>% 
+ggplot(aes(fct_infreq(race) %>% fct_rev())) + 
+geom_bar() + coord_flip() + 
+labs(x = "Victim race") 
+```
